@@ -1,0 +1,16 @@
+[meta
+  title:"idyll-loader-component"
+  description:"A loader for idyll so your scripts don't block" /]
+
+[Header
+  title:"idyll-loader"
+  author:"Ricky Reusser"
+  authorLink:"https://twitter.com/rickyreusser" /]
+
+This is a plot of [Equation]y = x[/Equation]:
+
+[Lineplot style:`{height: '300px'}`/]
+
+And for some reason it's the same plot again, but hey at least you don't need to load plotly every time:
+
+[Lineplot style:`{height: '300px'}`/]

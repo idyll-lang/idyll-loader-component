@@ -1,0 +1,20 @@
+{
+  "name": "plotly",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "idyll index.idl --css styles.css --layout blog --spellcheck",
+    "build": "idyll index.idl --layout blog --css styles.css --build | uglifyjs > build/index.js; cp -r {.idyll/styles.css,images,fonts} build/;",
+    "deploy": "npm run build && gh-pages -d ./build"
+  },
+  "dependencies": {
+    "idyll": "^1.0.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.12.0",
+    "idyll-component": "^1.0.5",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "uglify-js": "^2.7.5"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "idyll-loader-component",
+  "version": "1.0.0",
+  "description": "Component base class to make it easy to load scripts",
+  "main": "lib.js",
+  "scripts": {
+    "build": "babel index.js -o lib.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rreusser/idyll-loader-component.git"
+  },
+  "keywords": [
+    "idyll"
+  ],
+  "author": "Ricky Reusser",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rreusser/idyll-loader-component/issues"
+  },
+  "homepage": "https://github.com/rreusser/idyll-loader-component#readme",
+  "dependencies": {
+    "global": "^4.3.1",
+    "idyll-component": "^1.0.5",
+    "once": "^1.4.0",
+    "string-hash": "^1.1.3"
+  },
+  "peerDependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.24.1"
+  }
+}
