@@ -33,7 +33,7 @@ The plotly compoent just uses the loader, which is also very simple to use:
 ```
 render () {
   return <Loader src="..." onLoad={this.onLoad}>
-    I'm loaded content!
+    I'm content added after the script loads!
   </Loader>
 }
 ```
