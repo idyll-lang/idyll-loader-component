@@ -16,7 +16,22 @@
   </head>
   <body>
     <div id="idyll-mount">
-      <div class="idyll-root" data-reactroot="" data-reactid="1" data-react-checksum="22341292"><meta title="idyll-loader-component" data-reactid="2"/><header title="idyll-loader" data-reactid="3"></header><p data-reactid="4"><!-- react-text: 5 -->This is a plot of <!-- /react-text --><div class="equation" data-reactid="6"><!-- react-text: 7 -->y = x<!-- /react-text --></div><!-- react-text: 8 -->:<!-- /react-text --></p><div class="lineplot" style="height:300px;" data-reactid="9"></div><p data-reactid="10"><!-- react-text: 11 -->And for some reason it&#x27;s the same plot again, but hey at least you don&#x27;t need to load plotly every time:<!-- /react-text --></p><div class="lineplot" style="height:300px;" data-reactid="12"></div></div>
+      <div class="idyll-root" data-reactroot="" data-reactid="1" data-react-checksum="571944780"><meta title="idyll-loader-component" data-reactid="2"/><header title="idyll-loader" data-reactid="3"></header><p data-reactid="4"><!-- react-text: 5 -->This is a plot of <!-- /react-text --><div class="equation" data-reactid="6"><!-- react-text: 7 -->y = x<!-- /react-text --></div><!-- react-text: 8 -->:<!-- /react-text --></p><div class="lineplot" style="height:300px;" data-reactid="9"></div><p data-reactid="10"><!-- react-text: 11 -->You do this by creating <!-- /react-text --><link href="https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" data-reactid="12"/><!-- react-text: 13 --> that render this plot:<!-- /react-text --></p><pre data-reactid="14"><code data-reactid="15"><!-- react-text: 16 -->class Lineplot extends PlotlyComponent {
+  plot (gd) {
+    Plotly.plot(gd, {
+      data: [{
+        y: [1, 2, 3]
+      }],
+      layout: {
+        margin: {t: 40, r: 30, b: 30, l: 30}
+      }
+    });
+  }
+}<!-- /react-text --></code></pre><p data-reactid="17"><!-- react-text: 18 -->The plotly compoent just uses the loader, which is also very simple to use:<!-- /react-text --></p><pre data-reactid="19"><code data-reactid="20"><!-- react-text: 21 -->render () {
+  return &lt;Loader src=&quot;...&quot; onLoad={this.onLoad}&gt;
+    I&#x27;m loaded content!
+  &lt;/Loader&gt;
+}<!-- /react-text --></code></pre><p data-reactid="22"><!-- react-text: 23 -->And for some reason it&#x27;s the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn&#x27;t have to worry about including the script at all:<!-- /react-text --></p><div class="lineplot" style="height:300px;" data-reactid="24"></div></div>
     </div>
     <script src="index.js"></script>
   </body>

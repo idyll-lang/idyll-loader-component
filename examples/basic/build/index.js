@@ -33596,18 +33596,62 @@ var Header = function (_IdyllComponent) {
 
 module.exports = Header;
 
+},{"idyll-component":"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/node_modules/idyll-component/lib.js","react":"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/node_modules/react/react.js"}],"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/link.js":[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var React = require('react');
+var IdyllComponent = require('idyll-component');
+
+var Link = function (_IdyllComponent) {
+  _inherits(Link, _IdyllComponent);
+
+  function Link(props) {
+    _classCallCheck(this, Link);
+
+    return _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).call(this, props));
+  }
+
+  _createClass(Link, [{
+    key: 'render',
+    value: function render() {
+      var props = this.props;
+      if (props.url) {
+        props.href = props.url;
+      }
+      return React.createElement(
+        'a',
+        props,
+        this.props.text
+      );
+    }
+  }]);
+
+  return Link;
+}(IdyllComponent);
+
+module.exports = Link;
+
 },{"idyll-component":"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/node_modules/idyll-component/lib.js","react":"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/node_modules/react/react.js"}],"/Users/rreusser/projects/idyll/idyll-loader-component/examples/basic/.idyll/ast.json":[function(require,module,exports){
-module.exports=[["meta",[["title",["value","idyll-loader-component"]],["description",["value","A loader for idyll so your scripts don't block"]]],[]],["Header",[["title",["value","idyll-loader"]],["author",["value","Ricky Reusser"]],["authorLink",["value","https://twitter.com/rickyreusser"]]],[]],["p",[],["This is a plot of ",["Equation",[],["y = x"]],":"]],["Lineplot",[["style",["expression","{height: '300px'}"]]],[]],["p",[],["And for some reason it's the same plot again, but hey at least you don't need to load plotly every time:"]],["Lineplot",[["style",["expression","{height: '300px'}"]]],[]]]
+module.exports=[["meta",[["title",["value","idyll-loader-component"]],["description",["value","A loader for idyll so your scripts don't block"]]],[]],["Header",[["title",["value","idyll-loader"]],["author",["value","Ricky Reusser"]],["authorLink",["value","https://twitter.com/rickyreusser"]]],[]],["p",[],["This is a plot of ",["Equation",[],["y = x"]],":"]],["Lineplot",[["style",["expression","{height: '300px'}"]]],[]],["p",[],["You do this by creating ",["link",[["href",["value","https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js"]],["text",["value","a custom component"]]],[]]," that render this plot:"]],["pre",[],[["code",[],["class Lineplot extends PlotlyComponent {\n  plot (gd) {\n    Plotly.plot(gd, {\n      data: [{\n        y: [1, 2, 3]\n      }],\n      layout: {\n        margin: {t: 40, r: 30, b: 30, l: 30}\n      }\n    });\n  }\n}"]]]],["p",[],["The plotly compoent just uses the loader, which is also very simple to use:"]],["pre",[],[["code",[],["render () {\n  return <Loader src=\"...\" onLoad={this.onLoad}>\n    I'm loaded content!\n  </Loader>\n}"]]]],["p",[],["And for some reason it's the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn't have to worry about including the script at all:"]],["Lineplot",[["style",["expression","{height: '300px'}"]]],[]]]
 },{}],"/Users/rreusser/projects/idyll/idyll-loader-component/examples/basic/.idyll/components.js":[function(require,module,exports){
 "use strict";
 
 module.exports = {
   "header": require('/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/header'),
   "equation": require('/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/equation'),
-  "lineplot": require('/Users/rreusser/projects/idyll/idyll-loader-component/examples/basic/components/lineplot')
+  "lineplot": require('/Users/rreusser/projects/idyll/idyll-loader-component/examples/basic/components/lineplot'),
+  "link": require('/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/link')
 };
 
-},{"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/equation":"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/equation.js","/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/header":"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/header.js","/Users/rreusser/projects/idyll/idyll-loader-component/examples/basic/components/lineplot":"/Users/rreusser/projects/idyll/idyll-loader-component/examples/basic/components/lineplot.js"}],"/Users/rreusser/projects/idyll/idyll-loader-component/examples/basic/components/lineplot.js":[function(require,module,exports){
+},{"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/equation":"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/equation.js","/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/header":"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/header.js","/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/link":"/Users/rreusser/.nvm/versions/node/v6.8.0/lib/node_modules/idyll/src/components/link.js","/Users/rreusser/projects/idyll/idyll-loader-component/examples/basic/components/lineplot":"/Users/rreusser/projects/idyll/idyll-loader-component/examples/basic/components/lineplot.js"}],"/Users/rreusser/projects/idyll/idyll-loader-component/examples/basic/components/lineplot.js":[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
