@@ -29,7 +29,7 @@ class Loader extends IdyllComponent {
     super(props);
     this.state = {
       loaded: props.skip,
-      loading: false,
+      loading: true, // So that it's loading in the static version
       error: null
     };
 
