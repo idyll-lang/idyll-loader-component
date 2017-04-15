@@ -9,7 +9,7 @@
 
 This is a plot of [Equation]y = x[/Equation]:
 
-[Lineplot style:`{height: '300px'}`/]
+[Lineplot style:`{height: '300px'}` loadOnVisible:`true` loadOnVisible:`true`/]
 
 You do this by creating [link href:"https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" text:"a custom component"/] that render this plot:
 
@@ -40,4 +40,8 @@ render () {
 
 And for some reason it's the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn't have to worry about including the script at all:
 
-[Lineplot style:`{height: '300px'}`/]
+[Lineplot style:`{height: '300px'}` loadOnVisible:`true`/]
+
+And of course it wouldn't be complete without good old json loading:
+
+[Plotly src:"data/99.json" style:`{height:'500px'}` loadOnVisible:`true`/]

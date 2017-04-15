@@ -12,6 +12,7 @@
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "scrollwatch": "^1.2.0",
     "uglify-js": "^2.8.22",
     "uglifyjs": "^2.4.10"
   },

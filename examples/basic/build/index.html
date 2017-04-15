@@ -12,11 +12,10 @@
       <meta property="og:description" content="A loader for idyll so your scripts don&#39;t block">
       <meta property="description" content="A loader for idyll so your scripts don&#39;t block">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
   <body>
     <div id="idyll-mount">
-      <div class="idyll-root" data-reactroot="" data-reactid="1" data-react-checksum="-1347799216"><meta title="idyll-loader-component" data-reactid="2"/><header title="idyll-loader" data-reactid="3"></header><p data-reactid="4"><!-- react-text: 5 -->This is a plot of <!-- /react-text --><div class="equation" data-reactid="6"><!-- react-text: 7 -->y = x<!-- /react-text --></div><!-- react-text: 8 -->:<!-- /react-text --></p><div class="lineplot" style="height:300px;" data-reactid="9"></div><p data-reactid="10"><!-- react-text: 11 -->You do this by creating <!-- /react-text --><link href="https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" data-reactid="12"/><!-- react-text: 13 --> that render this plot:<!-- /react-text --></p><pre data-reactid="14"><code data-reactid="15"><!-- react-text: 16 -->class Lineplot extends PlotlyComponent {
+      <div class="idyll-root" data-reactroot="" data-reactid="1" data-react-checksum="824213791"><meta title="idyll-loader-component" data-reactid="2"/><header title="idyll-loader" data-reactid="3"></header><p data-reactid="4"><!-- react-text: 5 -->This is a plot of <!-- /react-text --><div class="equation" data-reactid="6"><!-- react-text: 7 -->y = x<!-- /react-text --></div><!-- react-text: 8 -->:<!-- /react-text --></p><div class="lineplot" style="height:300px;" data-reactid="9"></div><p data-reactid="10"><!-- react-text: 11 -->You do this by creating <!-- /react-text --><link href="https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" data-reactid="12"/><!-- react-text: 13 --> that render this plot:<!-- /react-text --></p><pre data-reactid="14"><code data-reactid="15"><!-- react-text: 16 -->class Lineplot extends PlotlyComponent {
   plot (gd) {
     Plotly.plot(gd, {
       data: [{
@@ -31,7 +30,7 @@
   return &lt;Loader src=&quot;...&quot; onLoad={this.onLoad}&gt;
     I&#x27;m content added after the script loads!
   &lt;/Loader&gt;
-}<!-- /react-text --></code></pre><p data-reactid="22"><!-- react-text: 23 -->And for some reason it&#x27;s the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn&#x27;t have to worry about including the script at all:<!-- /react-text --></p><div class="lineplot" style="height:300px;" data-reactid="24"></div></div>
+}<!-- /react-text --></code></pre><p data-reactid="22"><!-- react-text: 23 -->And for some reason it&#x27;s the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn&#x27;t have to worry about including the script at all:<!-- /react-text --></p><div class="lineplot" style="height:300px;" data-reactid="24"></div><p data-reactid="25"><!-- react-text: 26 -->And of course it wouldn&#x27;t be complete without good old json loading:<!-- /react-text --></p><div class="plotly" src="data/99.json" style="height:500px;" data-reactid="27"></div></div>
     </div>
     <script src="index.js"></script>
   </body>

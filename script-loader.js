@@ -68,7 +68,7 @@ module.exports.load = function (src, callback, opts) {
         executeCallbacks(err);
         return;
       } else {
-        loadState.loaded = false;
+        loadState.loaded = true;
         executeCallbacks();
       }
     });
