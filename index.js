@@ -51,7 +51,6 @@ class Loader extends IdyllComponent {
       watchOnce: false
     });
 
-    console.log('this.props.loadOnVisble:', this.props.loadOnVisible);
     if (!this.props.loadOnVisible) this.load();
   }
 
@@ -66,9 +65,7 @@ class Loader extends IdyllComponent {
     if (this.loadIssued) return;
     this.loadIssued = true;
 
-    console.log('this.props.src:', this.props.src);
     loader.load(this.props.src, (err) => {
-      console.log('loaded!', err);
       this.props.onLoad && this.props.onLoad(err);
       this.setState({
         loaded: true,
