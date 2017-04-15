@@ -9,7 +9,7 @@
 
 This is a plot of [Equation]y = x[/Equation]:
 
-[Lineplot style:`{height: '300px'}` loadOnVisible:`true` loadOnVisible:`true`/]
+[Lineplot style:`{height: '300px'}` loadOnVisible:`true`/]
 
 You do this by creating [link href:"https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" text:"a custom component"/] that render this plot:
 
