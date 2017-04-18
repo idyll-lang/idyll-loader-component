@@ -1,4 +1,4 @@
-# [wip] idyll-lodaer-component
+# [wip] idyll-loader-component
 
 > An [idyll](https://github.com/idyll-lang/idyll) component to manage asynchronous display and script loading
 
