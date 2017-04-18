@@ -3,15 +3,25 @@
   description:"A loader for idyll so your scripts don't block" /]
 
 [Header
-  title:"idyll-loader"
+  title:"idyll-loader-component"
   author:"Ricky Reusser"
   authorLink:"https://twitter.com/rickyreusser" /]
 
-This is a plot of [Equation]y = x[/Equation]:
+This document uses the idyll loader component to build a component that displays plots using an external library without blocking the entire page.
+
+[Loader]
+This paragraph is wrapped in `Loader` so that it shows up only on scroll (which is probably right away if you're at the top of the page when loading).
+[/Loader]
+
+[Loader error:"This is a component with an externally supplied error message"]
+This text is never displayed
+[/Loader]
+
+Moving on to the plots, this is a plot of [Equation]y = x[/Equation]:
 
 [Lineplot style:`{height: '300px'}`/]
 
-You do this by creating [link href:"https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" text:"a custom component"/] that render this plot:
+It's accomplished by creating [link href:"https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" text:"a custom component"/] that render this plot:
 
 ```
 class Lineplot extends PlotlyComponent {
@@ -45,12 +55,3 @@ And for some reason it's the same plot again, but hey at least it only loads the
 And of course it wouldn't be complete without good old json loading:
 
 [Plotly src:"data/99.json" style:`{height:'500px'}`/]
-
-[Loader]
-This is just ordinary content that shows up only on scroll.
-[/Loader]
-
-
-[Loader error:"This is a component with an externally supplied error message"]
-This text is never displayed
-[/Loader]

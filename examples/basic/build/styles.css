@@ -317,6 +317,11 @@ body {
   font-family: 'Fira Mono', monospace;
 }
 
+.idyll-loader {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 .regl {
   width: 100%;
   margin: 30px auto;
