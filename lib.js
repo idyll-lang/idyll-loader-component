@@ -38,6 +38,8 @@ class Loader extends IdyllComponent {
     this.onEnteredView = this.onEnteredView.bind(this);
     this.onExitView = this.onExitView.bind(this);
     this.loadScript = this.loadScript.bind(this);
+    this.renderLoader = this.renderLoader.bind(this);
+    this.renderError = this.renderError.bind(this);
   }
 
   componentDidMount() {
