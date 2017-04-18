@@ -23,7 +23,7 @@ If you require a cdn script to display content, you can use the loader component
 var Loader = require('idyll-loader-component')
 var IdyllComponent = require('idyll-component')
 
-class PlotlyComponent extends IdyllComponent {
+class FeatureComponent extends IdyllComponent {
   doSomethingComplex = () => {
     // this is executed only *after* the cdn script 
     // has been loaded *and* when you're within 100
