@@ -6,6 +6,14 @@
 
 This component helps manage asynchronous display so you don't have to block a whole page load for a complicated feature below the fold. It combines external script loading with visibility checking.
 
+## Installation
+
+***Not yet published.***
+
+```bash
+$ npm install idyll-loader-component
+```
+
 ## Usage
 
 To display content when it becomes visible:
