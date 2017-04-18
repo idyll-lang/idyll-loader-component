@@ -28,6 +28,7 @@ class Loader extends IdyllComponent {
   constructor (props) {
     super(props);
     this.state = {
+      display: false,
       loaded: props.skip,
       loading: true, // So that it's loading in the static version
       error: null
@@ -38,44 +39,78 @@ class Loader extends IdyllComponent {
     this.isLoading = this.isLoading.bind(this);
     this.onEnteredView = this.onEnteredView.bind(this);
     this.onExitView = this.onExitView.bind(this);
-    this.load = this.load.bind(this);
+    this.loadScript = this.loadScript.bind(this);
   }
 
   componentDidMount() {
     this.node = ReactDOM.findDOMNode(this);
 
-    var sw = new ScrollWatch({
-      watch: fullPath(this.node),
-      onElementInView: this.onEnteredView,
-      onElementOutOfView: this.onExitView,
-      watchOnce: false
-    });
+    if (this.props.scrollwatch) {
+      var sw = new ScrollWatch({
+        watch: fullPath(this.node),
+        onElementInView: this.onEnteredView,
+        onElementOutOfView: this.onExitView,
+        watchOnce: false,
+        watchOffset: this.props.scrollrange
+      });
+    }
 
-    if (!this.props.loadOnVisible) this.load();
+    if (!this.props.scrollwatch || this.props.loadScriptImmediately) this.loadScript();
   }
 
   componentWillUpdate (nextProps, nextState) {
-    if (nextProps.loadOnVisible && nextState.visible) {
-      this.load();
+    if (this.state.display) return false;
+
+    if ((this.props.readyForScriptLoad || this.readyForScriptLoad)(nextProps.scrollwatch, nextState.hasBeenVisible)) {
+      this.loadScript();
+    }
+
+    if ((this.props.readyForDisplay || this.readyForDisplay)(nextState.loaded, nextProps.scrollwatch, nextState.hasBeenVisible)) {
+      this.setState({display: true});
+    }
+
+    if (nextState.display) {
+      this.onLoad();
     }
   }
 
-  load () {
+  readyForScriptLoad (hasScrollwatch, hasBeenVisible) {
+    return !hasScrollwatch || (hasScrollwatch && hasBeenVisible);
+  }
+
+  readyForDisplay (scriptLoaded, hasScrollwatch, hasBeenVisible) {
+    return scriptLoaded && ((hasScrollwatch && hasBeenVisible) || !hasScrollwatch);
+  }
+
+  loadScript () {
     // Prevent double-load:
     if (this.loadIssued) return;
     this.loadIssued = true;
 
-    loader.load(this.props.src, (err) => {
-      this.props.onLoad && this.props.onLoad(err);
+    if (this.props.src) {
+      loader.load(this.props.src, (err) => {
+        this.setState({
+          loaded: !err,
+          loading: false,
+          error: err
+        });
+      }, {
+        verbose: this.props.debug,
+        scriptId: this.props.scriptId
+      });
+    } else {
       this.setState({
         loaded: true,
         loading: false,
-        error: err
+        error: null
       });
-    }, {
-      verbose: this.props.verbose,
-      scriptId: this.props.scriptId
-    });
+    }
+  }
+
+  onLoad () {
+    if (this.calledOnLoad) return;
+    this.calledOnLoad = true;
+    this.props.onLoad && this.props.onLoad(this.state.error);
   }
 
   onEnteredView () {
@@ -86,11 +121,13 @@ class Loader extends IdyllComponent {
   }
 
   onExitView () {
-    this.setState({visible: false});
+    this.setState({
+      visible: false
+    });
   }
 
   renderLoader () {
-    var loaderStyles = {
+    var loaderStyles = Object.assign({
       textAlign: 'center',
       backgroundColor: '#EAE7D6',
       border: '1px solid #DAD7C6',
@@ -100,7 +137,7 @@ class Loader extends IdyllComponent {
       alignItems: 'center',
       justifyContent: 'center',
       padding: '15px',
-    }
+    }, this.props.loaderStyles || {});
 
     return <div style={loaderStyles}>
       <span>Loading...</span>
@@ -108,7 +145,7 @@ class Loader extends IdyllComponent {
   }
 
   renderError (msg) {
-    var errorStyles = {
+    var errorStyles = Object.assign({
       textAlign: 'left',
       backgroundColor: '#EAE7D6',
       border: '1px solid #DAD7C6',
@@ -120,7 +157,8 @@ class Loader extends IdyllComponent {
       fontFamily: 'monospace',
       padding: '15px',
       color: '#f32'
-    }
+    }, this.props.errorStyles || {})
+
     return <div style={errorStyles}>
       <span>{msg}</span>
     </div>
@@ -131,14 +169,19 @@ class Loader extends IdyllComponent {
   }
 
   render () {
+    var hasError = this.props.error || this.state.error;
+
+    // This is the negation of the above condition. The logic is a bit ugly...
+    var isLoading = !this.state.loaded || ((!this.props.scrollwatch || !this.state.hasBeenVisible) && this.props.scrollwatch);
+
     return <div
       style={this.props.style}
       className={(this.props.className ? this.props.className : '') + ' idyll-loader'}
     >
-      {(this.props.isLoading || this.isLoading)(this.state.loading) ? (
+      {isLoading ? (
         (this.props.renderLoader || this.renderLoader)()
       ) : (
-        (this.props.error) || this.state.error ? (
+        hasError ? (
           (this.props.renderError || this.renderError)(typeof this.props.error === 'string' ? this.props.error : this.state.error)
         ) : (
           this.props.children
@@ -150,9 +193,11 @@ class Loader extends IdyllComponent {
 
 Loader.defaultProps = {
   className: '',
-  loadOnVisible: false,
-  verbose: false,
-  skip: false
+  loadScriptImmediately: false,
+  scrollwatch: true,
+  scrollrange: 200,
+  debug: false,
+  skip: false,
 };
 
 module.exports = Loader;

@@ -96,7 +96,7 @@ module.exports.load = function (src, callback, opts) {
 
     if (!foundScript) {
       script.src = src;
-      document.head.appendChild(script);
+      document.body.appendChild(script);
     }
   }
 };

@@ -87,8 +87,11 @@ class PlotlyComponent extends IdyllComponent {
     className = (className ? className : '') + ' plotly';
     return <Loader
       style={Object.assign({position: 'relative'}, style)}
+      className={className}
       src="data/plotly-basic.min.js"
-      loadOnVisible={this.props.loadOnVisible}
+      scrollwatch={this.props.scrollwatch}
+      scrollrange={this.props.scrollrange}
+      loadScriptImmediately={false}
       onLoad={this.onLoad}
       isLoading={this.isLoading}
       error={this.state.dataSrcError}
@@ -98,7 +101,8 @@ class PlotlyComponent extends IdyllComponent {
 
 PlotlyComponent.defaultProps = {
   className: '',
-  loadOnVisible: false
+  scrollwatch: true,
+  scrollrange: 0
 };
 
 module.exports = PlotlyComponent;
