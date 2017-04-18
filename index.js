@@ -4,7 +4,6 @@ const IdyllComponent = require('idyll-component');
 const loader = require('./script-loader')
 const ScrollWatch = require('scrollwatch');
 
-
 //http://stackoverflow.com/questions/4588119/get-elements-css-selector-when-it-doesnt-have-an-id
 function fullPath(el){
   var names = [];

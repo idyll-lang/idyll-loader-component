@@ -54,7 +54,7 @@ Props:
 
 - `scrollwatch?: boolean`: When true, checks components for visibility. Otherwise loads immediately. Default is true.
 - `scrollrange?: number`: range outside of the view at which components are deemed visible
-- `loadScriptImmediately?: boolean `: When true, loads the script immediately. Otherwise defers load until component is displayed
+- `loadScriptImmediately?: boolean `: When true, loads the script immediately. Otherwise defers load until component is displayed. Default is `false`
 - `error?: string`: override the state of the component and force the display of an externally supplied error message
 - `loaderStyles?: object`: When using default loader display, an object of overrides merge into the default styles
 - `errorStyles?: object`: When using default error display, an object of overrides merge into the default styles
