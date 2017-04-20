@@ -46,7 +46,8 @@ class PlotlyComponent extends IdyllComponent {
   }
 
   resize (gd, width, height) {
-    Plotly.relayout(gd || this.node, {width: width, height: height});
+    if (!gd || !gd._fullLayout) return;
+    Plotly.relayout(gd, {width: width, height: height});
   }
 
   componentWillUpdate (nextProps, nextState) {
@@ -92,7 +93,7 @@ class PlotlyComponent extends IdyllComponent {
   }
 
   plot (gd, data) {
-    Plotly.plot(gd || this.node, data || this.data);
+    Plotly.plot(gd, data || this.data);
   }
 
   isLoading (scriptLoading) {
@@ -107,7 +108,7 @@ class PlotlyComponent extends IdyllComponent {
     return <Loader
       style={Object.assign({position: 'relative'}, style)}
       className={className}
-      src="data/plotly-basic.min.js"
+      src="https://cdn.plot.ly/plotly-latest.js"
       scrollwatch={this.props.scrollwatch}
       scrollrange={this.props.scrollrange}
       loadScriptImmediately={false}

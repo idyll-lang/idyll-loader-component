@@ -1,6 +1,5 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const IdyllComponent = require('idyll-component');
 const loader = require('./script-loader');
 const ScrollWatch = require('scrollwatch');
 
@@ -22,7 +21,7 @@ function fullPath(el) {
   return names.join(" > ");
 }
 
-class Loader extends IdyllComponent {
+class Loader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

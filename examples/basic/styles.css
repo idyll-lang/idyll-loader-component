@@ -156,15 +156,18 @@ a.github-corner {
   right: calc((10vw + 600px + 175px) / -2);
 }
 .idyll-figure {
-  text-align: center;
   margin-left: 0;
   margin-right: 0;
   margin-top: 3em;
   margin-bottom: 5em;
 }
+.idyll-caption-container {
+  text-align:left;
+}
 .idyll-caption {
-  padding-left: 15px;
-  padding-right: 15px;
+  /*padding-left: 15px;
+  padding-right: 15px;*/
+  margin-top: 0.5em;
 }
 .aside .idyll-figure {
   margin-top: 0;

@@ -5,8 +5,9 @@
     "start": "idyll index.idl --css styles.css --layout blog --spellcheck",
     "build:template": "cat _template.html| github-cornerify > _index.html",
     "build:html": "mkdir -p build && idyll index.idl --layout blog --css styles.css --build | uglifyjs -c -m > build/index.js; cp .idyll/styles.css build/",
+    "build:images": "mkdir -p build/images && cp -r images/* build/images/",
     "build:data": "mkdir -p build/data && cp -r data/* build/data/",
-    "build": "npm run build:template && npm run build:html && npm run build:data",
+    "build": "npm run build:template && npm run build:html && npm run build:data && npm run build:images",
     "deploy": "npm run build && gh-pages -d ./build"
   },
   "devDependencies": {

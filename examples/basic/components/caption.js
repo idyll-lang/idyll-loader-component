@@ -12,21 +12,29 @@ class Caption extends React.Component {
         {(this.context.format || '').replace(/%i/, this.context.number)}
       </em>
     }
-    return <figcaption className="idyll-caption">
-      <div className="idyll-caption-content">
-        {[num].concat(this.props.children)}
-      </div>
-    </figcaption>
+    console.log('this.props.align:', this.props.align);
+    var containerStyles = {
+      textAlign: {left: 'left', right: 'right', center: 'center'}[this.props.align] || 'center'
+    }
+    console.log('containerStyles:', containerStyles);
+    return <div className="idyll-caption-container" style={containerStyles}>
+      <figcaption className="idyll-caption">
+        <div className="idyll-caption-content">
+          {[num].concat(this.props.children)}
+        </div>
+      </figcaption>
+    </div>
   }
 }
 
 Caption.defaultProps = {
-  format: "Figure %i."
+  format: "Figure %i.",
+  align: 'center'
 }
 
 Caption.contextTypes = {
   number: React.PropTypes.number,
-  format: React.PropTypes.string
+  format: React.PropTypes.string,
 }
 
 module.exports = Caption;
