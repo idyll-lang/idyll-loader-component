@@ -26,7 +26,7 @@ This text is never displayed
   [/Fig]
 [/Aside]
 
-This could easily be used to lazy-load images. The more interesting case though is using `Loader` to add content that pulls in sorta expensive external scripts without blocking page load. In particular, by specifying a script source, you can either load an external script on page loads or once the first component that needs it loads. Since it manages load events, you don't need to worry about ensuring the library is loaded before you use it. [Figref number:1/] shows a plot of [Equation]y = x + 1[/Equation]. It's accomplished by creating [link href:"https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" text:"a custom component"/] with the following code:
+This could easily be used to lazy-load images. [Figref number:4/] at the bottom of the page does just that. The more interesting case though is using `Loader` to add content that pulls in sorta expensive external scripts without blocking page load. In particular, by specifying a script source, you can either load an external script on page loads or once the first component that needs it loads. Since it manages load events, you don't need to worry about ensuring the library is loaded before you use it. [Figref number:1/] shows a plot of [Equation]y = x + 1[/Equation]. It's accomplished by creating [link href:"https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" text:"a custom component"/] with the following code:
 
 ```
 class Lineplot extends PlotlyComponent {
