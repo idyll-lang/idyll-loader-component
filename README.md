@@ -19,7 +19,7 @@ $ npm install idyll-loader-component
 To display content when it becomes visible:
 
 ```
-[Loader range:100]
+[Loader scrollrange:100]
   This is just ordinary text that shows up
   when you scroll to within 100 pixels of it
 [/Loader]

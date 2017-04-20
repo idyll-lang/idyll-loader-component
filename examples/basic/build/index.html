@@ -12,12 +12,17 @@
       <meta property="og:description" content="A loader for idyll so your scripts don&#39;t block">
       <meta property="description" content="A loader for idyll so your scripts don&#39;t block">
     <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
+  <style type="text/css">.github-corner{display:block;position:absolute;top:0;left:auto;right:0;z-index:10000}.github-corner svg{display:block}.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%{transform:rotate(0)}20%{transform:rotate(-25deg)}40%{transform:rotate(10deg)}60%{transform:rotate(-25deg)}80%{transform:rotate(10deg)}100%{transform:rotate(0)}}@media(max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></head>
+  <body><a href="https://github.com/idyll-lang/idyll-loader-component" class="github-corner" aria-label="View source on Github"><svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 250 250" fill="#fff">
+  <path d="M0 0l115 115h15l12 27 108 108V0z" fill="#333"/>
+  <path class="octo-arm" d="M128 109c-15-9-9-19-9-19 3-7 2-11 2-11-1-7 3-2 3-2 4 5 2 11 2 11-3 10 5 15 9 16" style="-webkit-transform-origin: 130px 106px; transform-origin: 130px 106px"/>
+  <path class="octo-body" d="M115 115s4 2 5 0l14-14c3-2 6-3 8-3-8-11-15-24 2-41 5-5 10-7 16-7 1-2 3-7 12-11 0 0 5 3 7 16 4 2 8 5 12 9s7 8 9 12c14 3 17 7 17 7-4 8-9 11-11 11 0 6-2 11-7 16-16 16-30 10-41 2 0 3-1 7-5 11l-12 11c-1 1 1 5 1 5z"/>
+</svg>
+</a>
     <div id="idyll-mount">
-      <div class="idyll-root" data-reactroot="" data-reactid="1" data-react-checksum="286560727"><meta title="idyll-loader-component" data-reactid="2"/><header title="idyll-loader-component" data-reactid="3"></header><p data-reactid="4"><!-- react-text: 5 -->This document uses the idyll loader component to build a component that displays plots using an external library without blocking the entire page.<!-- /react-text --></p><div class="loader" data-reactid="6"><p data-reactid="7"><!-- react-text: 8 -->
-This paragraph is wrapped in <!-- /react-text --><code data-reactid="9"><!-- react-text: 10 -->Loader<!-- /react-text --></code><!-- react-text: 11 --> so that it shows up only on scroll (which is probably right away if you&#x27;re at the top of the page when loading).<!-- /react-text --></p></div><div class="loader" data-reactid="12"><!-- react-text: 13 -->
-This text is never displayed<!-- /react-text --></div><aside data-reactid="14"><div class="lineplot" style="height:300px;" data-reactid="15"></div></aside><p data-reactid="16"><!-- react-text: 17 -->Moving on to the plots, this is a plot of <!-- /react-text --><div class="equation" data-reactid="18"><!-- react-text: 19 -->y = x<!-- /react-text --></div><!-- react-text: 20 -->:<!-- /react-text --></p><p data-reactid="21"><!-- react-text: 22 -->It&#x27;s accomplished by creating <!-- /react-text --><link href="https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" data-reactid="23"/><!-- react-text: 24 --> that render this plot:<!-- /react-text --></p><pre data-reactid="25"><code data-reactid="26"><!-- react-text: 27 -->class Lineplot extends PlotlyComponent {
+      <div class="idyll-root" data-reactroot="" data-reactid="1" data-react-checksum="1980805609"><meta title="idyll-loader-component" data-reactid="2"/><header title="idyll-loader-component" data-reactid="3"></header><p data-reactid="4"><!-- react-text: 5 -->This document uses <!-- /react-text --><link href="https://github.com/idyll-lang/idyll-loader-component" data-reactid="6"/><!-- react-text: 7 --> to build a component that displays plots using an external library without blocking the entire page.<!-- /react-text --></p><div class="loader" data-reactid="8"><p data-reactid="9"><!-- react-text: 10 -->
+This paragraph is wrapped in <!-- /react-text --><code data-reactid="11"><!-- react-text: 12 -->Loader<!-- /react-text --></code><!-- react-text: 13 --> so that it shows up only on scroll (which is probably right away if you&#x27;re at the top of the page when loading).<!-- /react-text --></p></div><div class="loader" data-reactid="14"><!-- react-text: 15 -->
+This text is never displayed<!-- /react-text --></div><aside data-reactid="16"><div class="lineplot" style="height:300px;" data-reactid="17"></div></aside><p data-reactid="18"><!-- react-text: 19 -->Moving on to the plots, this is a plot of <!-- /react-text --><div class="equation" data-reactid="20"><!-- react-text: 21 -->y = x<!-- /react-text --></div><!-- react-text: 22 -->:<!-- /react-text --></p><p data-reactid="23"><!-- react-text: 24 -->It&#x27;s accomplished by creating <!-- /react-text --><link href="https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" data-reactid="25"/><!-- react-text: 26 --> that render this plot:<!-- /react-text --></p><pre data-reactid="27"><code data-reactid="28"><!-- react-text: 29 -->class Lineplot extends PlotlyComponent {
   plot (gd) {
     Plotly.plot(gd, {
       data: [{
@@ -28,11 +33,11 @@ This text is never displayed<!-- /react-text --></div><aside data-reactid="14"><
       }
     });
   }
-}<!-- /react-text --></code></pre><p data-reactid="28"><!-- react-text: 29 -->The plotly component just uses the loader, which is also very simple to use:<!-- /react-text --></p><pre data-reactid="30"><code data-reactid="31"><!-- react-text: 32 -->render () {
+}<!-- /react-text --></code></pre><p data-reactid="30"><!-- react-text: 31 -->The plotly component just uses the loader, which is also very simple to use:<!-- /react-text --></p><pre data-reactid="32"><code data-reactid="33"><!-- react-text: 34 -->render () {
   return &lt;Loader src=&quot;...&quot; onLoad={this.onLoad}&gt;
     I&#x27;m content added after the script loads!
   &lt;/Loader&gt;
-}<!-- /react-text --></code></pre><aside data-reactid="33"><div class="lineplot" style="height:300px;" data-reactid="34"></div></aside><p data-reactid="35"><!-- react-text: 36 -->And for some reason it&#x27;s the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn&#x27;t have to worry about including the script at all.<!-- /react-text --></p><p data-reactid="37"><!-- react-text: 38 -->And of course it wouldn&#x27;t be complete without good old json loading:<!-- /react-text --></p><div class="plotly" src="data/99.json" style="height:500px;" data-reactid="39"></div></div>
+}<!-- /react-text --></code></pre><aside data-reactid="35"><div class="lineplot" style="height:300px;" data-reactid="36"></div></aside><p data-reactid="37"><!-- react-text: 38 -->And for some reason it&#x27;s the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn&#x27;t have to worry about including the script at all.<!-- /react-text --></p><p data-reactid="39"><!-- react-text: 40 -->And of course it wouldn&#x27;t be complete without good old json loading:<!-- /react-text --></p><div class="plotly" src="data/99.json" style="height:500px;" data-reactid="41"></div></div>
     </div>
     <script src="index.js"></script>
   </body>

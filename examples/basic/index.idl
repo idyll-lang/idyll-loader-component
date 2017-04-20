@@ -7,7 +7,7 @@
   author:"Ricky Reusser"
   authorLink:"https://twitter.com/rickyreusser" /]
 
-This document uses the idyll loader component to build a component that displays plots using an external library without blocking the entire page.
+This document uses [Link href:"https://github.com/idyll-lang/idyll-loader-component" text:"idyll-loader-component"/] to build a component that displays plots using an external library without blocking the entire page.
 
 [Loader]
 This paragraph is wrapped in `Loader` so that it shows up only on scroll (which is probably right away if you're at the top of the page when loading).

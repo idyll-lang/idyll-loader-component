@@ -25,6 +25,7 @@ class PlotlyComponent extends IdyllComponent {
     this.fetchSrc = this.fetchSrc.bind(this);
     this.onLoad = this.onLoad.bind(this);
     this.plot = this.plot.bind(this);
+    this.resize = this.resize.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +35,18 @@ class PlotlyComponent extends IdyllComponent {
     if (this.state.needsSrc) {
       this.fetchSrc()
     }
+
+    if (this.props.autoresize && window) {
+      this.onResize = () => {
+        this.resize(this.node, this.node.offsetWidth, this.node.offsetHeight);
+      }
+
+      window.addEventListener('resize', this.onResize);
+    }
+  }
+
+  resize (gd, width, height) {
+    Plotly.relayout(gd || this.node, {width: width, height: height});
   }
 
   componentWillUpdate (nextProps, nextState) {
@@ -42,6 +55,12 @@ class PlotlyComponent extends IdyllComponent {
     if (nextState.scriptLoaded && (!nextState.needsSrc || nextState.dataSrcLoaded)) {
       this.plot(this.node, this.data);
       this.initialPlot = true;
+    }
+  }
+
+  componentWillUnmount () {
+    if (this.onResize) {
+      window.removeEventListener('resize', this.onResize);
     }
   }
 
@@ -102,7 +121,8 @@ class PlotlyComponent extends IdyllComponent {
 PlotlyComponent.defaultProps = {
   className: '',
   scrollwatch: true,
-  scrollrange: 0
+  scrollrange: 200,
+  autoresize: true
 };
 
 module.exports = PlotlyComponent;

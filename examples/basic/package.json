@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "idyll index.idl --css styles.css --layout blog --spellcheck",
-    "build": "idyll index.idl --layout blog --css styles.css --build | uglifyjs > build/index.js; cp .idyll/styles.css build/",
+    "build:template": "cat _template.html| github-cornerify > _index.html",
+    "build:html": "mkdir -p build && idyll index.idl --layout blog --css styles.css --build | uglifyjs -c -m > build/index.js; cp .idyll/styles.css build/",
+    "build": "npm run build:template && npm run build:html",
     "deploy": "npm run build && gh-pages -d ./build"
   },
   "devDependencies": {
@@ -13,10 +15,12 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "scrollwatch": "^1.2.0",
-    "uglify-js": "^2.8.22",
-    "uglifyjs": "^2.4.10"
+    "uglify-js": "^2.8.22"
   },
   "dependencies": {
     "idyll": "^1.0.25"
+  },
+  "github-corner": {
+    "url": "https://github.com/idyll-lang/idyll-loader-component"
   }
 }

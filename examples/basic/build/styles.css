@@ -449,4 +449,8 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #f3f1e7;
 }
-
+.js-ploly-plot .modebar-btn,
+.github-corner {
+  box-shadow: none;
+  transition: none;
+}
