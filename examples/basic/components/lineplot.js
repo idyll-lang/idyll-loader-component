@@ -7,7 +7,7 @@ module.exports = class Lineplot extends PlotlyComponent {
         y: [1, 2, 3]
       }],
       layout: {
-        margin: {t: 40, r: 30, b: 30, l: 30}
+        margin: {t: 40, r: 10, b: 20, l: 20}
       }
     });
   }

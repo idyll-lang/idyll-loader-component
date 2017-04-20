@@ -130,8 +130,7 @@ class Loader extends IdyllComponent {
   renderLoader () {
     var loaderStyles = Object.assign({
       textAlign: 'center',
-      backgroundColor: '#EAE7D6',
-      border: '1px solid #DAD7C6',
+      backgroundColor: '#F2F3F2',
       width: '100%',
       height: '100%',
       display: 'flex',
@@ -148,8 +147,7 @@ class Loader extends IdyllComponent {
   renderError (msg) {
     var errorStyles = Object.assign({
       textAlign: 'left',
-      backgroundColor: '#EAE7D6',
-      border: '1px solid #DAD7C6',
+      backgroundColor: '#F2F3F2',
       width: '100%',
       height: '100%',
       display: 'flex',
@@ -157,7 +155,7 @@ class Loader extends IdyllComponent {
       justifyContent: 'flex-start',
       fontFamily: 'monospace',
       padding: '15px',
-      color: '#f32'
+      color: '#d32'
     }, this.props.errorStyles || {})
 
     return <div style={errorStyles}>
