@@ -13,7 +13,9 @@ class Caption extends React.Component {
       </em>
     }
     return <figcaption className="idyll-caption">
-      {[num].concat(this.props.children)}
+      <div className="idyll-caption-content">
+        {[num].concat(this.props.children)}
+      </div>
     </figcaption>
   }
 }

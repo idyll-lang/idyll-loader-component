@@ -449,7 +449,9 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #f3f1e7;
 }
-.js-ploly-plot a.modebar-btn:hover,
+.js-plotly-plot .modebar a,
+.js-plotly-plot .modebar a:visited,
+.js-plotly-plot .modebar a:hover,
 a.github-corner {
   box-shadow: none;
   transition: none;
@@ -471,25 +473,28 @@ a.github-corner {
 
 .idyll-figure {
   text-align: center;
+  margin-left: 0;
+  margin-right: 0;
 }
 .idyll-caption {
   text-align: left;
+  display: inline-block;
 }
-.idyll-caption {
+.idyll-caption-content {
   line-height: 1.4em;
 }
-.idyll-caption p {
+.idyll-caption-content p {
   line-height: 1em;
 }
-.idyll-caption,
-.idyll-caption p {
-  display: inline-block;
+.idyll-caption-content,
+.idyll-caption-content p {
+  display: inline;
   margin: 0;
   font-size: 1em;
   font-style: italic;
   font-family: serif;
 }
-.idyll-caption em {
+.idyll-caption-content em {
   font-style: normal;
   font-weight: bold;
 }

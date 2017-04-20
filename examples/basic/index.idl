@@ -55,7 +55,7 @@ render () {
 [Aside]
   [Figure number:2]
     [Lineplot style:`{height: '300px'}`/]
-    [Caption]Second figure, same as the first. Except this one has a long caption that wraps nicely onto the next line in a way such that the block centering Just Works™.[/Caption]
+    [Caption]Second figure, same as the first. Except this one has a long caption that wraps nicely onto the next line because I mean captions are easy and trivial and all, but it's nice if it includes all that annoying block/inline CSS centering stuff so that things Just Work™.[/Caption]
   [/Figure]
 [/Aside]
 
@@ -63,4 +63,7 @@ And for some reason it's the same plot again, but hey at least it only loads the
 
 And of course it wouldn't be complete without good old json loading:
 
-[Plotly src:"data/99.json" style:`{height:'500px'}`/]
+[Figure number:3]
+  [Plotly src:"data/99.json" style:`{height:'500px'}`/]
+  [Caption]Visitors to Joshua Tree National Park from 1979 through the present. A new brochure in 2014, possibly? Source: [Link href:"https://irma.nps.gov/Stats/" text:"NPS Stats (https://irma.nps.gov/Stats/)" /][/Caption]
+[/Figure]
