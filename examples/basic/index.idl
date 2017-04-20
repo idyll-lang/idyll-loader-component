@@ -57,7 +57,7 @@ You can find the source [Link href:"https://github.com/idyll-lang/idyll-loader-c
 [Aside]
   [Fig number:2]
     [Lineplot style:`{height: '250px'}`/]
-    [Caption]Second figure, same as the first. Except this one has a long caption that wraps nicely onto the next line because I mean captions trivial and all, but it actually takes like twenty minutes to sit down and sort out the block/inline CSS centering stuff, plus including an equation wraps the whole thing in a `p` tag so that it's actually really really nice if it all Just Works™.[/Caption]
+    [Caption]Second figure, same as the first. Except this one has a long caption that wraps nicely onto the next line because I mean captions are trivial and all, but it actually takes like twenty minutes to sit down and sort out the block/inline CSS centering stuff, plus including an equation wraps the whole thing in a `p` tag so that it's actually really really nice if it all Just Works™.[/Caption]
   [/Fig]
 [/Aside]
 
