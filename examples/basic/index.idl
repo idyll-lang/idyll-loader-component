@@ -7,13 +7,13 @@
   author:"Ricky Reusser"
   authorLink:"https://twitter.com/rickyreusser" /]
 
-This document uses [Link href:"https://github.com/idyll-lang/idyll-loader-component" text:"idyll-loader-component"/] to build a component that displays plots using an external library without blocking the entire page.
+This document uses [Link href:"https://github.com/idyll-lang/idyll-loader-component" text:"idyll-loader-component"/] display content that, for one reason or another, doesn't get displayed on initial page load. It's a contrived example, but the blockquote below uses the `Loader` component.
 
 [Loader scrollwatch:`true` scrollrange:0]
 [Quote]This blockquote is wrapped in `Loader` so that it shows up only on scroll (which is probably right away if you're at the top of the page when loading).[/Quote]
 [/Loader]
 
-[Loader error:"This is a component with an externally supplied error message"]
+[Loader error:"This is a component with an externally supplied error message. The main reason to do this would be if you were using the Loader component programatically to manage loading external resources yourself."]
 This text is never displayed
 [/Loader]
 
@@ -50,6 +50,8 @@ render () {
 }
 ```
 
+You can find the source [Link href:"https://github.com/idyll-lang/idyll-loader-component/blob/master/examples/basic/components/plotly.js#L107-L117" text:"here"/]. It's quite a bit more complicated than it needs to be because CORS didn't work out for the external resources I was trying to load. Using the loader was simple though.
+
 [Aside]
   [Fig number:2]
     [Lineplot style:`{height: '250px'}`/]
@@ -57,7 +59,7 @@ render () {
   [/Fig]
 [/Aside]
 
-And for some reason [Figref number:2/] shows the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn't have to worry about including the script at all.
+And for some reason [Figref number:2/] shows the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn't have to worry about including the script at all. Hooray! 😸
 
 And of course it wouldn't be complete without good old json loading. In this case I downloaded the data from [Link href:"plot.ly/~rreusser/99.json" text:"plot.ly/~rreusser/99.json"/] and dropped it in my `data/` folder.
 
