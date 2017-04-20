@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rreusser/idyll-loader-component.git"
+    "url": "git+https://github.com/idyll-lang/idyll-loader-component.git"
   },
   "keywords": [
     "idyll"
@@ -17,9 +17,9 @@
   "author": "Ricky Reusser",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rreusser/idyll-loader-component/issues"
+    "url": "https://github.com/idyll-lang/idyll-loader-component/issues"
   },
-  "homepage": "https://github.com/rreusser/idyll-loader-component#readme",
+  "homepage": "https://github.com/idyll-lang/idyll-loader-component#readme",
   "dependencies": {
     "global": "^4.3.1",
     "idyll-component": "^1.0.5",
