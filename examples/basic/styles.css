@@ -153,3 +153,35 @@ a.github-corner {
   width: 400px;
   right: calc((10vw + 600px + 200px) / -2);
 }
+@media (max-width: 1000px) {
+  .aside {
+    width: 100%;
+    right: auto;
+  }
+  .idyll-figure {
+    margin-top: 3em;
+    margin-bottom: 5em;
+  }
+}
+
+.idyll-figure {
+  text-align: center;
+}
+.idyll-caption {
+  text-align: left;
+}
+.idyll-caption,
+.idyll-caption p {
+  display: inline-block;
+  margin: 0;
+  font-size: 1em;
+  font-style: italic;
+  font-family: serif;
+}
+.idyll-caption em {
+  font-style: normal;
+  font-weight: bold;
+}
+.idyll-caption-prefix {
+  margin-right: 0.5em;
+}

@@ -18,10 +18,13 @@ This text is never displayed
 [/Loader]
 
 [Aside]
-  [Lineplot style:`{height: '300px'}`/]
+  [Figure number:1]
+    [Lineplot style:`{height: '300px'}`/]
+    [Caption]Just a plot of [Equation]y = x + 1[/Equation][/Caption]
+  [/Figure]
 [/Aside]
 
-Moving on to the plots, this is a plot of [Equation]y = x[/Equation]:
+Moving on to the plots, this is a plot of [Equation]y = x + 1[/Equation]:
 
 It's accomplished by creating [link href:"https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" text:"a custom component"/] that render this plot:
 
@@ -31,8 +34,7 @@ class Lineplot extends PlotlyComponent {
     Plotly.plot(gd, {
       data: [{
         y: [1, 2, 3]
-      }],
-      layout: {
+      }], layout: {
         margin: {t: 40, r: 30, b: 30, l: 30}
       }
     });
@@ -51,7 +53,10 @@ render () {
 ```
 
 [Aside]
-  [Lineplot style:`{height: '300px'}`/]
+  [Figure number:2]
+    [Lineplot style:`{height: '300px'}`/]
+    [Caption]Second figure, same as the first. Except this one has a long caption that wraps nicely onto the next line in a way such that the block centering Just Works™.[/Caption]
+  [/Figure]
 [/Aside]
 
 And for some reason it's the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn't have to worry about including the script at all.
