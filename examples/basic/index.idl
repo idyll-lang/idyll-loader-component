@@ -9,8 +9,8 @@
 
 This document uses [Link href:"https://github.com/idyll-lang/idyll-loader-component" text:"idyll-loader-component"/] to build a component that displays plots using an external library without blocking the entire page.
 
-[Loader]
-This paragraph is wrapped in `Loader` so that it shows up only on scroll (which is probably right away if you're at the top of the page when loading).
+[Loader scrollwatch:`true` scrollrange:0]
+[Quote]This blockquote is wrapped in `Loader` so that it shows up only on scroll (which is probably right away if you're at the top of the page when loading).[/Quote]
 [/Loader]
 
 [Loader error:"This is a component with an externally supplied error message"]
@@ -18,15 +18,13 @@ This text is never displayed
 [/Loader]
 
 [Aside]
-  [Figure number:1]
-    [Lineplot style:`{height: '300px'}`/]
+  [Fig number:1]
+    [Lineplot style:`{height: '250px'}`/]
     [Caption]Just a plot of [Equation]y = x + 1[/Equation][/Caption]
-  [/Figure]
+  [/Fig]
 [/Aside]
 
-Moving on to the plots, this is a plot of [Equation]y = x + 1[/Equation]:
-
-It's accomplished by creating [link href:"https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" text:"a custom component"/] that render this plot:
+This could easily be used to lazy-load images. The more interesting case though is using `Loader` to add dynamic content without blocking page load. In particular, the first you can either load an external script once when the page loads or lazily once the first component that needs it loads. Since it manages load events, this all makes it a bit easier to avoid worrying about ensuring the library is loaded before you use it. [Figref number:1/] shows a plot of [Equation]y = x + 1[/Equation]. It's accomplished by creating [link href:"https://github.com/rreusser/idyll-loader-component/blob/master/examples/basic/components/lineplot.js" text:"a custom component"/] with the following code:
 
 ```
 class Lineplot extends PlotlyComponent {
@@ -42,7 +40,7 @@ class Lineplot extends PlotlyComponent {
 }
 ```
 
-The plotly component just uses the loader, which is also very simple to use:
+The [Link href:"https://github.com/plotly/plotly.js" text:"plotly.js"/] component just uses the loader, which is also very simple to use:
 
 ```
 render () {
@@ -53,17 +51,17 @@ render () {
 ```
 
 [Aside]
-  [Figure number:2]
-    [Lineplot style:`{height: '300px'}`/]
-    [Caption]Second figure, same as the first. Except this one has a long caption that wraps nicely onto the next line because I mean captions are easy and trivial and all, but it's nice if it includes all that annoying block/inline CSS centering stuff so that things Just Work™.[/Caption]
-  [/Figure]
+  [Fig number:2]
+    [Lineplot style:`{height: '250px'}`/]
+    [Caption]Second figure, same as the first. Except this one has a long caption that wraps nicely onto the next line because I mean captions trivial and all, but it actually takes like twenty minutes to sit down and sort out the block/inline CSS centering stuff, plus including an equation wraps the whole thing in a `p` tag so that it's actually really really nice if it all Just Works™.[/Caption]
+  [/Fig]
 [/Aside]
 
-And for some reason it's the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn't have to worry about including the script at all.
+And for some reason [Figref number:2/] shows the same plot again, but hey at least it only loads the plotly cdn script once and the end-user doesn't have to worry about including the script at all.
 
-And of course it wouldn't be complete without good old json loading:
+And of course it wouldn't be complete without good old json loading. In this case I downloaded the data from [Link href:"plot.ly/~rreusser/99.json" text:"plot.ly/~rreusser/99.json"/] and dropped it in my `data/` folder.
 
-[Figure number:3]
+[Fig number:3]
   [Plotly src:"data/99.json" style:`{height:'500px'}`/]
   [Caption]Visitors to Joshua Tree National Park from 1979 through the present. A new brochure in 2014, possibly? Source: [Link href:"https://irma.nps.gov/Stats/" text:"NPS Stats (https://irma.nps.gov/Stats/)" /][/Caption]
-[/Figure]
+[/Fig]

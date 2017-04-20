@@ -457,24 +457,27 @@ a.github-corner {
   transition: none;
 }
 .aside {
-  width: 400px;
-  right: calc((10vw + 600px + 200px) / -2);
+  width: 350px;
+  right: calc((10vw + 600px + 175px) / -2);
 }
-@media (max-width: 1000px) {
-  .aside {
-    width: 100%;
-    right: auto;
-  }
-  .idyll-figure {
-    margin-top: 3em;
-    margin-bottom: 5em;
-  }
-}
-
 .idyll-figure {
   text-align: center;
   margin-left: 0;
   margin-right: 0;
+  margin-top: 3em;
+  margin-bottom: 5em;
+}
+.idyll-caption {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.aside .idyll-figure {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.aside .idyll-caption {
+  padding-left: 0;
+  padding-right: 0;
 }
 .idyll-caption {
   text-align: left;
@@ -500,4 +503,35 @@ a.github-corner {
 }
 .idyll-caption-prefix {
   margin-right: 0.5em;
+}
+
+@media (max-width: 1000px) {
+  .aside {
+    width: 100%;
+    right: auto;
+  }
+  .aside .idyll-figure,
+  .idyll-figure {
+    margin-top: 5em;
+    margin-bottom: 5em;
+  }
+  .aside .idyll-caption {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.idyll-blockquote {
+  border-left: 6px solid rgb(242, 243, 242);
+  padding-left: 10px;
+  font-style: italic;
+  margin-top: 2em;
+  margin-bottom: 3em;
+  font-family: serif;
+  color: #555;
+  margin-left: 20px;
+  margin-right: 40px;
+}
+.idyll-blockquote p {
+  display: inline;
 }
