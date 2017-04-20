@@ -7,7 +7,9 @@
   author:"Ricky Reusser"
   authorLink:"https://twitter.com/rickyreusser" /]
 
-This document uses [Link href:"https://github.com/idyll-lang/idyll-loader-component" text:"idyll-loader-component"/] display content that, for one reason or another, doesn't get displayed on initial page load. It's a contrived example, but the blockquote below uses the `Loader` component.
+This document uses [Link href:"https://github.com/idyll-lang/idyll-loader-component" text:"idyll-loader-component"/] display content that, for one reason or another, doesn't get displayed on initial page load. You can find the document source [Link href:"https://github.com/idyll-lang/idyll-loader-component/blob/master/examples/basic/index.idl" text:"here"/].
+
+To start things off with a contrived example, the blockquote below uses the `Loader` component.
 
 [Loader scrollwatch:`true` scrollrange:0]
 [Quote]This blockquote is wrapped in `Loader` so that it shows up only on scroll (which is probably right away if you're at the top of the page when loading).[/Quote]
