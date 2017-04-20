@@ -454,3 +454,7 @@ a.github-corner {
   box-shadow: none;
   transition: none;
 }
+.aside {
+  width: 400px;
+  right: calc((10vw + 600px + 200px) / -2);
+}
