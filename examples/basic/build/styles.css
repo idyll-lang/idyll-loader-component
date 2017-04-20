@@ -449,7 +449,7 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #f3f1e7;
 }
-.js-ploly-plot a.modebar-btn,
+.js-ploly-plot a.modebar-btn:hover,
 a.github-corner {
   box-shadow: none;
   transition: none;
