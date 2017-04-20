@@ -475,6 +475,12 @@ a.github-corner {
 .idyll-caption {
   text-align: left;
 }
+.idyll-caption {
+  line-height: 1.4em;
+}
+.idyll-caption p {
+  line-height: 1em;
+}
 .idyll-caption,
 .idyll-caption p {
   display: inline-block;
