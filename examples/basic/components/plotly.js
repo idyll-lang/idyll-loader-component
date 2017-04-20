@@ -108,7 +108,7 @@ class PlotlyComponent extends IdyllComponent {
     return <Loader
       style={Object.assign({position: 'relative'}, style)}
       className={className}
-      src="https://cdn.plot.ly/plotly-latest.js"
+      src="data/plotly-basic.min.js"
       scrollwatch={this.props.scrollwatch}
       scrollrange={this.props.scrollrange}
       loadScriptImmediately={false}
