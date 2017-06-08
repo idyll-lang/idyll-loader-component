@@ -233,3 +233,7 @@ a.github-corner {
 .idyll-blockquote p {
   display: inline;
 }
+
+.katex .katex-mathml {
+  display: none;
+}

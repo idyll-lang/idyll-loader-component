@@ -1,6 +1,9 @@
-
+body {
+  margin: 0;
+}
 
 .idyll-root {
+  box-sizing: border-box;
   max-width: 90vw;
   margin: 0 auto;
   padding: 60px 0;
@@ -63,19 +66,6 @@ input {
     width: calc((85vw - 600px) - 50px);
   }
 }
-
-
-@media all and (max-width: 1200px) {
-  .idyll-root {
-    margin-left: 10px;
-    width: 500px;
-  }
-
-  .fixed {
-    width: calc((500px - 10px) - 50px);
-  }
-}
-
 
 @media all and (max-width: 1000px) {
   /* put your css styles in here */
@@ -196,45 +186,6 @@ a:hover {
   box-shadow: inset 0 -20px 0 #EAE7D6;
 }
 
-.logo-lockup {
-  display: block;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-}
-
-.logo-lockup a {
-  display: block;
-  cursor: pointer;
-}
-
-.logo-lockup a .logo {
-  width: 60px;
-  height: 60px;
-  background: #EAE7D6;
-}
-
-.logo-lockup a small {
-  display: block;
-  transform: rotate(-90deg);
-  margin-top: 0;
-  font-size: 1rem;
-  line-height: 60px;
-  opacity: 0;
-  padding: 0 20px;
-  top: 60px;
-  left: -30px;
-  position: fixed;
-  z-index: -1;
-  transition: all .25s ease-in-out;
-}
-
-.logo-lockup a:hover small {
-  opacity: 1;
-  top: 120px;
-}
-
-
 pre {
   margin-top: 25px;
   margin-bottom: 25px;
@@ -258,50 +209,18 @@ code {
 }
 
 
-.logo-lockup {
-  display: block;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-}
 
-.logo-lockup a {
-  display: block;
+span.action {
+  border-color: #5601FF;
+  border-width: 2px;
+  border-style: none none solid none;
+  color: #5601FF;
+  /*font-size: 0.9em;*/
+  padding: -4px 5px;
+  margin: 0 5px;
   cursor: pointer;
 }
 
-.logo-lockup a .logo {
-  width: 60px;
-  height: 60px;
-  background: #EAE7D6;
-}
-
-.logo-lockup a small {
-  display: block;
-  transform: rotate(-90deg);
-  margin-top: 0;
-  font-size: 1rem;
-  line-height: 60px;
-  opacity: 0;
-  padding: 0 20px;
-  top: 60px;
-  left: -30px;
-  position: fixed;
-  z-index: -1;
-  transition: all .25s ease-in-out;
-}
-
-.logo-lockup a:hover small {
-  opacity: 1;
-  top: 120px;
-}
-
-
-@media all and (max-width: 700px) {
-  .logo-lockup {
-    display: none;
-  }
-}
 
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Fira+Mono:400,500,700|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i');
 
@@ -537,4 +456,8 @@ a.github-corner {
 }
 .idyll-blockquote p {
   display: inline;
+}
+
+.katex .katex-mathml {
+  display: none;
 }

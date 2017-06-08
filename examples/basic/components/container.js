@@ -13,7 +13,9 @@ class Container extends React.Component {
 
     this.setPosition = this.setPosition.bind(this);
 
-    window.addEventListener('resize', this.setPosition);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', this.setPosition);
+    }
   }
 
   componentDidMount() {
@@ -28,7 +30,7 @@ class Container extends React.Component {
 
   setPosition () {
     var rect = this.node.getBoundingClientRect();
-    var pageWidth = window.innerWidth;
+    var pageWidth = typeof window === 'undefined' ? 640 : window.innerWidth;
     var expandLeft = this.props.expandLeft === undefined ? this.props.expand : this.props.expandLeft;
     var expandRight = this.props.expandRight === undefined ? this.props.expand : this.props.expandRight;
     var left = Math.max(rect.left - expandLeft, this.props.padding);

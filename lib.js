@@ -1,7 +1,12 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const loader = require('./script-loader');
-const ScrollWatch = require('scrollwatch');
+const global = require('global');
+
+let ScrollWatch;
+if (global.window) {
+  ScrollWatch = require('scrollwatch');
+}
 
 //http://stackoverflow.com/questions/4588119/get-elements-css-selector-when-it-doesnt-have-an-id
 function fullPath(el) {
@@ -34,8 +39,8 @@ class Loader extends React.Component {
     this.loadIssued = false;
 
     this.isLoading = this.isLoading.bind(this);
-    this.onEnteredView = this.onEnteredView.bind(this);
-    this.onExitView = this.onExitView.bind(this);
+    this.handleEnteredView = this.handleEnteredView.bind(this);
+    this.handleExitedView = this.handleExitedView.bind(this);
     this.loadScript = this.loadScript.bind(this);
     this.renderLoader = this.renderLoader.bind(this);
     this.renderError = this.renderError.bind(this);
@@ -44,11 +49,11 @@ class Loader extends React.Component {
   componentDidMount() {
     this.node = ReactDOM.findDOMNode(this);
 
-    if (this.props.scrollwatch) {
+    if (this.props.scrollwatch && !!global.window) {
       var sw = new ScrollWatch({
         watch: fullPath(this.node),
-        onElementInView: this.onEnteredView,
-        onElementOutOfView: this.onExitView,
+        onElementInView: this.handleEnteredView,
+        onElementOutOfView: this.handleExitedView,
         watchOnce: false,
         watchOffset: this.props.scrollrange
       });
@@ -112,17 +117,23 @@ class Loader extends React.Component {
     this.props.onLoad && this.props.onLoad(this.state.error);
   }
 
-  onEnteredView() {
+  handleEnteredView() {
     this.setState({
       hasBeenVisible: true,
       visible: true
     });
+
+    this.props.onEnteredView && this.props.onEnteredView();
   }
 
-  onExitView() {
+  handleExitedView() {
+    if (!this.rehide) return;
+
     this.setState({
       visible: false
     });
+
+    this.props.onExitedView && this.props.onExitedView();
   }
 
   renderLoader() {
@@ -200,7 +211,8 @@ Loader.defaultProps = {
   scrollwatch: true,
   scrollrange: 200,
   debug: false,
-  skip: false
+  skip: false,
+  rehide: false
 };
 
 module.exports = Loader;

@@ -1,6 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const Link = require('idyll/src/components/link');
+const Link = require('idyll-default-components/link');
 
 class Figref extends React.Component {
   render () {

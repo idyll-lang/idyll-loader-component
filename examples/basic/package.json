@@ -2,9 +2,9 @@
   "name": "plotly",
   "version": "1.0.0",
   "scripts": {
-    "start": "idyll index.idl --css styles.css --layout blog --spellcheck",
+    "start": "idyll -w index.idl --css styles.css --layout blog --spellcheck",
     "build:template": "cat _template.html| github-cornerify > _index.html",
-    "build:html": "mkdir -p build && idyll index.idl --layout blog --css styles.css --build | uglifyjs -c -m > build/index.js; cp .idyll/styles.css build/",
+    "build:html": "mkdir -p build && idyll index.idl --layout blog --css styles.css",
     "build:images": "mkdir -p build/images && cp -r images/* build/images/",
     "build:data": "mkdir -p build/data && cp -r data/* build/data/",
     "build": "npm run build:template && npm run build:html && npm run build:data && npm run build:images",
